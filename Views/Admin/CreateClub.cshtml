@@ -1,0 +1,52 @@
+﻿@model ClubMates.Web.Models.AdminViewModel.ClubViewModel
+
+@{
+	ViewBag.Title = "Create new Club";
+}
+
+<div class="form-container">
+	<div class="text-danger" asp-validation-summary="All"></div>
+	<form class="form" asp-action="CreateClub" asp-controller="Admin" method="post">
+		<div class="form-group">
+			<label for="ClubName">Club Name</label>
+			<input type="text" class="form-control" id="ClubName" name="ClubName" value="@Model.ClubName" />
+		</div>
+		<div class="form-group">
+			<label for="ClubDescription">Club Description</label>
+			<input type="text" class="form-control" id="ClubDescription" name="ClubDescription" value="@Model.ClubDescription" />
+		</div>
+		<div class="form-group">
+			<label for="CLUBCATEGORY">Club Category</label>
+			@Html.DropDownListFor(x => x.CLUBCATEGORY,
+							Model.ClubCategories,
+							"Select a Category,",
+							new { @id = "CLUBCATEGORY", @class = "form-control" })
+		</div>
+		<div class="form-group">
+			<label for="CLUBTYPE">Club Type</label>
+			@Html.DropDownListFor(x => x.CLUBTYPE,
+							Model.ClubTypes,
+							"Select a Club Type,",
+							new { @id = "CLUBTYPE", @class = "form-control" })
+		</div>
+		<div class="form-group">
+			<label for="ClubRules">Club Rules </label>
+			<input type="text" class="form-control" id="ClubRules" name="ClubRules" value="@Model.ClubRules" />
+		</div>
+		<div class="form-group">
+			<label for="ClubManager">Club Manager Email</label>
+			<input type="text" class="form-control" id="ClubManager" name="ClubManager" value="@Model.ClubManager" />
+		</div>
+		<div class="form-group">
+			<label for="ClubContactNumber">Club ContactNumber</label>
+			<input type="text" class="form-control" id="ClubContactNumber" name="ClubContactNumber" value="@Model.ClubContactNumber" />
+		</div>
+		<div class="form-group">
+			<label for="ClubEmail">Club Email</label>
+			<input type="email" class="form-control" id="ClubEmail" name="ClubEmail" value="@Model.ClubEmail" />
+		</div>
+
+		<button type="submit" class="btn btn-primary">Create Club</button>
+
+	</form>
+</div>

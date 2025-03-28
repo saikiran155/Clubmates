@@ -1,0 +1,75 @@
+﻿@model ClubMates.Web.Models.ClubsViewModel.CustomerClubViewModel
+
+@{
+    ViewData["Title"] = "Create new Club";
+}
+<div class="center-container d-flex flex-row justify-content-center">
+    <div class="clubmates-form-container">
+        <form class="form" asp-controller="Clubs" asp-action="CreateClubForCustomer" method="post" enctype="multipart/form-data">
+            <div class="text-danger" asp-validation-summary="All"></div>
+            <div class="form-group">
+                <label for="ClubName">Club Name</label>
+                <input type="text" class="form-control" id="ClubName" name="ClubName" value="@Model.ClubName" />
+                <span asp-validation-for="ClubName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ClubType">Club Type</label>
+                @Html.DropDownListFor(
+                         x => x.CLUBTYPE,
+                         Model.ClubTypes,
+                         "Select a Type",
+                         new { @id = "ClubType", @class = "form-control" })
+                <span asp-validation-for="CLUBTYPE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ClubCategory">Club Category</label>
+                @Html.DropDownListFor(
+                         x => x.CLUBCATEGORY,
+                         Model.ClubCategories,
+                         "Select a Category",
+                         new { @id = "ClubCategory", @class = "form-control" })
+                <span asp-validation-for="CLUBCATEGORY" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ClubDescription">Club Description</label>
+                <input type="text" class="form-control" id="ClubDescription" name="ClubDescription" value="@Model.ClubDescription" />
+                <span asp-validation-for="ClubDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ClubRules">Club Rules</label>
+                <input type="text" class="form-control" id="ClubRules" name="ClubRules" value="@Model.ClubRules" />
+                <span asp-validation-for="ClubRules" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ClubContactNumber">Club Contact Number</label>
+                <input type="text" class="form-control" id="ClubContactNumber" name="ClubContactNumber" value="@Model.ClubContactNumber" />
+                <span asp-validation-for="ClubContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ClubEmail">Club Email</label>
+                <input type="email" class="form-control" id="ClubEmail" name="ClubEmail" value="@Model.ClubEmail" />
+                <span asp-validation-for="ClubEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ClubLogo">Club Logo</label>
+                <input type="file" alt="@Model.ClubName" class="form-control" id="ClubLogo" name="clubLogo" value="@Model.ClubLogo" />
+                <span asp-validation-for="ClubLogo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ClubBanner">Club Banner</label>
+                <input type="file" alt="@Model.ClubBanner" class="form-control" id="ClubBanner" name="clubBanner" value="@Model.ClubBanner" />
+                <span asp-validation-for="ClubBanner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ClubBackground">Club Background</label>
+                <input type="file" alt="@Model.ClubBackground" class="form-control" id="ClubBackground" name="clubBackground" value="@Model.ClubBackground" />
+                <span asp-validation-for="ClubBackground" class="text-danger"></span>
+            </div>
+
+            <div class="btnTop">
+                <a asp-controller="Clubs" asp-action="Index" class="btn btn-primary">Back</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
